@@ -1,20 +1,794 @@
-<!DOCTYPE html>>
+﻿<!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>wiliam</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Wiliam — Encyclopédie</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="Wiliam.jpg" type="image/jpeg">
+    <meta name="description" content="Article style encyclopédique sur Wiliam">
+    <meta name="author" content="Wiliam">
 </head>
 <body>
-    <h1 style="font-size: large;"> yo </h1>
-    <p>
-        Je m'appelle William, mais vous pouvez aussi m'appeler El Williamos, Williamus Maximus, Ouilliam, Nonlliam, Peut-êtrelliam, Je-ne-sais-paslliam, la Williamation, le Williameur, Guillaume, William Afton, William Shakespeare, Will, Obtimus William, WILLIAM, le Williamus Paquantatus, Wiwi, Wi le Liam, Voldeliam, Superwilliam, William man, Williamanus, Willus, W, Oui...lliam, Pourquoilliam, Williwilliam, WilWilliWilliamusTherrienusowillusmaxiguillaumus, william_creation, Williamlecreatif, williamlecreatif2_0, William1X, William2X, William3X, William100X, Darth Williamus, le Williamaker, YEEHAlliam, Empereur Palpatilliam, Président Will Biden, Lord of the William, le Seigneur des Williams, le William, Purple Guy, Bumblelliam, Donkey Willg, Wi + lliam, le Williamé, Super duper ultra mega William, Mégatronlliam, William avec un M, WILliam, wilLIAM, wIllIAm, Williwilliam, Wiam, Wi, Wam, Wuliam, Walliam, Welliam Wylliam, Wolliam, Wulliam, Wuoailliam, ce mec, Therrien, Williamus Therrienus Maximus Pegasus, William #1.983.475, Markilliam, PewDieLliam, le Williamien, ou bien William.
-    </p>
+    <!-- Fond semi-transparent pour fermer le sommaire sur mobile -->
+    <div class="toc-backdrop" id="toc-backdrop"></div>
+
+    <nav class="topbar">
+        <div class="container">
+            <div class="level">
+                <div class="level-left">
+                    <h1 class="title is-4">Arobase Encyclopédie</h1>
+                    <button class="btn-toc-toggle" id="btn-toc-toggle" aria-label="Ouvrir le sommaire">☰ Sommaire</button>
+                </div>
+                <div class="level-right">
+                    <div class="field has-addons">
+                        <div class="control">
+                            <input id="searchBox" class="input" type="search" placeholder="Rechercher dans l'article...">
+                        </div>
+                        <div class="control">
+                            <button id="searchBtn" class="button">Rechercher</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container article-container">
+        <div class="columns">
+
+            <!-- Colonne gauche : Sommaire -->
+            <aside class="column is-2" id="toc-sidebar">
+                <div class="toc box" id="toc">
+                    <div class="toc-header">
+                        <strong>Sommaire</strong>
+                        <button class="btn-toc-close" id="btn-toc-close" aria-label="Fermer le sommaire">✕</button>
+                    </div>
+                    <div id="toc-list"></div>
+                </div>
+            </aside>
+
+            <!-- Colonne centrale : Article -->
+            <main class="column is-7">
+                <div id="article" class="content article">
+                    <h2 id="mw-content-text" class="title is-3">Wiliam</h2>
+
+                    <div id="article-content">
+
+                        <!-- === CITATION STYLE BLEACH WIKI === -->
+                        <div class="wiki-quote-box">
+                            <p class="wiki-quote-text">« Je suis Wiliam. »</p>
+                            <p class="wiki-quote-attr">— Wiliam, dans <em>« Wiliam ! »</em></p>
+                        </div>
+
+                        <h3 id="presentation">Présentation</h3>
+                        <p>
+                            <strong>Wiliam</strong> (aussi orthographié <em>William</em>, <em>Williamus</em>, ou dans les textes anciens <em>Williamus Maximus Therrienus</em>) est une entité d'envergure cosmique, explorateur multidimensionnel, fondateur du Gouverne-Wiliam et détenteur du record absolu du plus grand nombre de pseudonymes jamais attribués à un seul être vivant (ou non-vivant, selon les dimensions visitées).
+                        </p>
+                        <p>
+                            Il est possible de l'appeler : El Williamos, Williamus Maximus, Ouilliam, Nonlliam, Peut-êtrelliam, Je-ne-sais-paslliam, la Williamation, le Williameur, Guillaume, William Afton, William Shakespeare, Will, Obtimus William, WILLIAM, le Williamus Paquantatus, Wiwi, Wi le Liam, Voldeliam, Superwilliam, William man, Williamanus, Willus, W, Oui...lliam, Pourquoilliam, Williwilliam, WilWilliWilliamusTherrienusowillusmaxiguillaumus, william_creation, Williamlecreatif, williamlecreatif2_0, William1X, William2X, William3X, William100X, Darth Williamus, le Williamaker, YEEHAlliam, Empereur Palpatilliam, Président Will Biden, Lord of the William, le Seigneur des Williams, le William, Purple Guy, Bumblelliam, Donkey Willg, Wi + lliam, le Williamé, Super duper ultra mega William, Mégatronlliam, William avec un M, WILliam, wilLIAM, wIllIAm, Wiam, Wi, Wam, Wuliam, Walliam, Welliam, Wylliam, Wolliam, Wulliam, Wuoailliam, ce mec, Therrien, Williamus Therrienus Maximus Pegasus, William #1.983.475, Markilliam, PewDieLliam, le Williamien, ou bien simplement… <strong>William</strong>.
+                        </p>
+                        <blockquote class="article-quote">
+                            « Pourquoi se contenter d'un nom quand on peut en avoir des milliers ? »
+                            <footer>— Wiliam, <cite>Traité des pseudonymes infinis</cite>, 2026</footer>
+                        </blockquote>
+
+                        <h3 id="biographie">Biographie</h3>
+                        <p>
+                            Né un jour indéterminé dans une petite ville dont les archives ont mystérieusement disparu peu après sa naissance, Wiliam a grandi en explorant la nature, en construisant des inventions farfelues et en accumulant plus de pseudonymes que l'univers observable ne compte d'étoiles.
+                        </p>
+                        <p>
+                            Dès son plus jeune âge, Wiliam manifeste une curiosité insatiable. À l'âge de 7 ans, il construit sa première catapulte avec des LEGO et de la colle à bois. À 12 ans, il parle couramment le latin, le klingon et le morse. À 15 ans, il rédige un dictionnaire de 400 pages répertoriant tous ses propres noms. À 18 ans, il traverse le Lac Mirage à la nage un soir de pleine lune, devenant ainsi le premier humain (ou entité de son espèce) à en atteindre l'île centrale.
+                        </p>
+                        <p>
+                            Sa jeunesse est marquée par un rival de toujours : <strong>Guillaume</strong>, l'alter ego légèrement moins bien orthographié, avec qui il entretient une relation de compétition fraternelle acharnée. Leurs affrontements légendaires — allant du concours de pseudonymes jusqu'au défi de la poutine la plus grosse — ont alimenté la mythologie williamienne pendant des décennies.
+                        </p>
+
+                        <h3 id="personnalite">Personnalité</h3>
+                        <p>
+                            Wiliam est décrit par ses contemporains comme un être à la fois <strong>imprévisible et méthodique</strong>. Il possède une capacité rare à être simultanément créatif et rigoureux, poétique et logique, sérieux et profondément absurde.
+                        </p>
+                        <ul>
+                            <li><strong>Curiosité :</strong> Wiliam ne laisse aucun livre non-lu, aucune falaise non-escaladée, aucun fromage non-goûté.</li>
+                            <li><strong>Humour :</strong> Son sens de l'humour transcende les dimensions. Il est connu pour rire à ses propres blagues, souvent plusieurs jours à l'avance.</li>
+                            <li><strong>Persévérance :</strong> Il a tenté 47 fois de traverser le Désert de l'Erreur-404 avant de réussir — à chaque échec, il ajoutait un pseudonyme.</li>
+                            <li><strong>Générosité :</strong> Wiliam partage librement ses connaissances, ses aventures et ses pseudonymes avec quiconque le demande (et même ceux qui ne demandent pas).</li>
+                            <li><strong>Détermination :</strong> Une fois qu'il a décidé quelque chose, rien dans l'univers — pas même Guillaume — ne peut l'arrêter.</li>
+                        </ul>
+
+                        <h3 id="capacites">Capacités et pouvoirs</h3>
+                        <h4 id="capacites-exploration">Exploration Multidimensionnelle</h4>
+                        <p>
+                            Grâce à ses capacités naturelles de voyage dimensionnel (développées lors d'une nuit de pleine lune particulièrement agitée en 2020), Wiliam peut naviguer entre les dimensions parallèles. Il a visité au moins 47 dimensions différentes, dont la dimension où tout le monde s'appelle Guillaume, et la dimension où tout le monde se bat pour avoir le plus grand nombre de pseudonymes (qu'il a jugée « trop compétitive »).
+                        </p>
+                        <h4 id="capacites-noms">Génération de Pseudonymes</h4>
+                        <p>
+                            Wiliam possède la capacité unique de générer un nouveau pseudonyme adapté à chaque situation. Les scientifiques estiment que son cerveau contient un module neurologique dédié exclusivement à cette fonction, surnommé le <em>Williamus Nomimaticus</em>.
+                        </p>
+
+                        <h3 id="gouverne">Le Gouverne-Wiliam</h3>
+                        <p>
+                            Fondé après la Grande Traversée de 2019, le <strong>Gouverne-Wiliam</strong> est l'organisation politique, culturelle et technologique fondée par Wiliam. Son siège se trouve à un endroit non précisé (certains disent le Lac Mirage, d'autres prétendent qu'il existe uniquement en dimension parallèle).
+                        </p>
+                        <p>
+                            Le Gouverne-Wiliam repose sur trois piliers fondamentaux :
+                        </p>
+                        <ol>
+                            <li><strong>La Liberté des Pseudonymes</strong> — tout citoyen a le droit inaliénable de se faire appeler comme bon lui semble.</li>
+                            <li><strong>La Curiosité Sans Frontières</strong> — explorer l'inconnu est un devoir constitutionnel, même si l'inconnu ressemble beaucoup à Guillaume.</li>
+                            <li><strong>L'Exploration Permanente</strong> — rester curieux est une obligation civique.</li>
+                        </ol>
+                        <p>
+                            Le Gouverne-Wiliam compte à ce jour des membres dans au moins 12 dimensions connues et une dimension encore non cartographiée.
+                        </p>
+
+                        <h3 id="aventures">Aventures notables</h3>
+                        <p>
+                            Wiliam est le seul survivant de sa planète d'origine et l'illustre fondateur du Gouverne-Wiliam. Explorateur multidimensionnel, il a parcouru des planètes, des continents et des dimensions parallèles, accumulant légendes et pseudonymes à chaque étape de son périple.
+                        </p>
+                        <h4 id="galaxie">L'expédition de la Galaxie des Pseudonymes</h4>
+                        <p>
+                            En 2025, Wiliam lance une expédition cosmique vers la Galaxie des Pseudonymes — une formation stellaire dont les étoiles portent chacune un de ses noms. Il y reste 6 mois, crée un catalogue de 10 000 nouveaux pseudonymes basés sur les constellations qu'il y observe, puis revient avec un bronzage cosmique et une nouvelle recette de soupe stellaire.
+                        </p>
+
+                        <h3 id="relations">Relations</h3>
+                        <h4 id="rival">Guillaume — Le Grand Rival</h4>
+                        <p>
+                            Guillaume est le rival historique de Wiliam. Légèrement moins bien orthographié et légèrement plus classique dans ses approches, Guillaume représente l'alter ego raisonnable que Wiliam refuse d'être. Leurs débats sont épiques, leurs concours de pseudonymes sont interminables, mais leur amitié — que tous deux refusent d'admettre officiellement — est inébranlable.
+                        </p>
+                        <h4 id="allies">Alliés notables</h4>
+                        <ul>
+                            <li><strong>La William Team</strong> — un collectif d'explorateurs, de cuisiniers et d'aventuriers recrutés au fil des périples.</li>
+                            <li><strong>Le Conseil des Pseudonymes</strong> — un organe consultatif composé des 12 meilleurs pseudonymes de Wiliam, personnifiés.</li>
+                        </ul>
+
+                        <h3 id="philosophie">Philosophie Wilamienne</h3>
+                        <p>
+                            La philosophie de Wiliam, connue sous le nom de <strong>Williamisme</strong>, repose sur quelques principes fondamentaux :
+                        </p>
+                        <ul>
+                            <li><em>"Un nom unique est une cage. Mille noms, c'est la liberté."</em></li>
+                            <li><em>"Tout problème est un soufflé raté. Tout soufflé raté mérite une deuxième tentative. Donc, tout problème mérite une deuxième tentative."</em></li>
+                            <li><em>"Explorer l'inconnu est la seule façon de savoir ce que l'on ne sait pas."</em></li>
+                            <li><em>"Si ça sent bon, c'est probablement prêt. Si ça sent bizarre, c'est peut-être encore mieux."</em></li>
+                            <li><em>"Guillaume a tort. Sauf quand il a raison, ce qui arrive parfois, involontairement."</em></li>
+                        </ul>
+
+                        <h3 id="culture">Culture populaire</h3>
+                        <p>
+                            Wiliam a inspiré de nombreuses œuvres dans différents médias :
+                        </p>
+                        <ul>
+                            <li><strong>Film :</strong> <em>Williamus: L'Origine</em> (2024) — un film d'animation retraçant la traversée du Lac Mirage.</li>
+                            <li><strong>Série :</strong> <em>Les Aventures du Gouverne-Wiliam</em> (2025) — série de 12 épisodes disponible dans 3 dimensions.</li>
+                            <li><strong>Manga :</strong> <em>Will-i-am no jutsu</em> (2024) — manga d'action suivant Wiliam dans la dimension des ninjas.</li>
+                            <li><strong>Jeu vidéo :</strong> <em>Wiliam: Pseudonym Quest</em> (2025) — jeu de rôle où le joueur doit collecter tous les pseudonymes de Wiliam.</li>
+                            <li><strong>Livre :</strong> <em>Le Dictionnaire Infini des Noms de Wiliam</em> (2026) — 4 000 pages, prix Goncourt de la nomenclature.</li>
+                            <li><strong>Mème :</strong> "It's Wiliam Time" — mème viral généré spontanément sur 47 plateformes simultanément en 2025.</li>
+                        </ul>
+
+                        <h3 id="anecdotes">Anecdotes</h3>
+                        <ul>
+                            <li>Wiliam a un pseudonyme pour chaque jour de l'année — et des bonus pour les années bissextiles (<em>Wiliampius Annus</em> et <em>Wiliampius Annus 2.0</em>).</li>
+                            <li>Il a préparé son premier soufflé à 12 ans. Il n'est jamais retombé. Les physiciens ont rebaptisé ce phénomène la <em>Singularité de Wiliam</em>.</li>
+                            <li>Le mot « Wiliam » apparaît officiellement 4 826 fois dans cet article (les chercheurs williamologues continuent de compter).</li>
+                            <li>Sa rivalité avec Guillaume a généré plus de 800 débats philosophiques, dont aucun n'a été officiellement résolu. Guillaume prétend en avoir gagné 47. Wiliam dit que Guillaume a tort sur les 800.</li>
+                            <li>Wiliam est l'inventeur du concept de <em>« l'échec savoureux »</em> — un plat raté qui est finalement délicieux. Il en découle la <em>Loi de Wiliam-Murphy : tout ce qui peut aller bien, ira délicieusement bien.</em></li>
+                            <li>Il a refusé trois fois l'invitation à rejoindre la dimension où tout le monde a le même prénom, la jugeant <em>« déprimante et manquant cruellement de créativité nominale »</em>.</li>
+                            <li>Son pseudonyme préféré change tous les matins en fonction de son humeur, de la météo cosmique et de la position des fromages dans le réfrigérateur.</li>
+                            <li>Le passeport de Wiliam contient 47 pages. Toutes les cases « Prénom » sont remplies. Le douanier de la dimension 12-C a fini par lui délivrer un passeport vierge supplémentaire pour <em>« les prochains noms »</em>.</li>
+                            <li>Wiliam a tenté d'apprendre le mime afin d'exprimer ses pseudonymes visuellement. Après trois jours, il a abandonné car <em>« on ne peut pas mimer une williambiguïté »</em>.</li>
+                            <li>La toile d'araignée retrouvée dans son labo de Wiliameth porte le mot « Quelqu'un » tissé dessus. L'identité de l'araignée n'a pas encore été établie, mais les experts pensent qu'elle s'appelle Wiliam.</li>
+                            <li>Wiliam possède un miroir qui lui dit chaque matin <em>« Tu es le plus Wiliam d'entre tous »</em>, puis lui propose un pseudonyme. Ce miroir a un diplôme de l'UGW.</li>
+                            <li>La recette du Steak Interdimensionnel a été classifiée niveau « W » (le plus haut niveau de confidentialité du Gouverne-Wiliam, au-dessus de « Ultra Secret »).</li>
+                            <li>En 2025, Wiliam a soumis sa candidature aux élections présidentielles sous 47 noms différents. Il a été à la fois élu et battu simultanément. L'affaire est toujours devant la Cour Constitutionnelle Williamienne.</li>
+                        </ul>
+
+                        <h3 id="chronologie">Chronologie</h3>
+                        <table class="table is-striped is-fullwidth is-hoverable">
+                            <thead>
+                                <tr><th>Année</th><th>Événement</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>2000</td><td>Wiliam — les origines</td></tr>
+                                <tr><td>2001</td><td>Wiliam 2 : La Suite</td></tr>
+                                <tr><td>2002</td><td>Wiliam 3 : Le Retour</td></tr>
+                                <tr><td>2003</td><td>Wiliam 4 : La Revanche</td></tr>
+                                <tr><td>2004</td><td>Wiliam 5 : L'Éveil</td></tr>
+                                <tr><td>2005</td><td>Wiliam 6 : La Montée en Puissance</td></tr>
+                                <tr><td>2006</td><td>Wiliam Again : Retour aux sources</td></tr>
+                                <tr><td>2007</td><td>Wiliam Return : Le grand come-back</td></tr>
+                                <tr><td>2008</td><td>Wiliam Forever : L'éternité commence</td></tr>
+                                <tr><td>2009</td><td>Wiliam Eternal : Sans fin</td></tr>
+                                <tr><td>2010</td><td>Wiliam Infinity : L'infini est insuffisant</td></tr>
+                                <tr><td>2011</td><td>Wiliam Ultimate : Le summum provisoire</td></tr>
+                                <tr><td>2012</td><td>Wiliam Supreme : Au-dessus de tout</td></tr>
+                                <tr><td>2013</td><td>Absolute Wiliam : La forme finale (provisoire)</td></tr>
+                                <tr><td>2014</td><td>The Wrath of Wiliam : La colère du bonjour</td></tr>
+                                <tr><td>2015</td><td>Wiliam The Unstoppable : Rien ne l'arrête</td></tr>
+                                <tr><td>2016</td><td>Wiliam The Invincible : Invaincu à ce jour</td></tr>
+                                <tr><td>2017</td><td>Wiliam The Indestructible : Testé, confirmé</td></tr>
+                                <tr><td>2018</td><td>Wiliam The Immortal : La mort a refusé</td></tr>
+                                <tr><td>2019</td><td>Wiliam Lost in Space : Fondation du Gouverne-Wiliam</td></tr>
+                                <tr><td>2020</td><td>Wiliam The Time Traveler : Début du voyage dimensionnel</td></tr>
+                                <tr><td>2021</td><td>Wiliam The Multidimensional : 47 dimensions visitées</td></tr>
+                                <tr><td>2022</td><td>Wiliam The Omnipotent : Confirmation officielle</td></tr>
+                                <tr><td>2023</td><td>Wiliam The Omniscient · 47e tentative du Désert-404</td></tr>
+                                <tr><td>2024</td><td>Traversée du Lac Mirage · Falaises de Verre · Désert-404 (succès) · Neverdie 24</td></tr>
+                                <tr><td>2025</td><td>La nuit des lanternes · Expédition galactique · The Death of Wiliam 25 (démenti)</td></tr>
+                                <tr><td>2026</td><td>Wiliam Reborn 26 · Création du Dictionnaire Infini des pseudonymes · Cet article</td></tr>
+                                <tr><td>2027</td><td>Wiliam Strike Out <em>(prévu)</em></td></tr>
+                                <tr><td>2028</td><td>Wiliam Nation <em>(prévu)</em></td></tr>
+                                <tr><td>2030</td><td>Wiliam Rise Again <em>(prophétisé)</em></td></tr>
+                                <tr><td>2031</td><td>Wiliam Endgame <em>(prophétisé)</em></td></tr>
+                                <tr><td>2035</td><td>Omni-Wiliam <em>(prophétisé)</em></td></tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="citations">Galerie de citations</h3>
+                        <blockquote class="article-quote">« Je ne suis pas un homme. Je suis un concept. Un wiliameur. »<footer>— Wiliam, <cite>Conférence TED-W : Comment être Wiliam en 47 étapes</cite>, 2025</footer></blockquote>
+                        <blockquote class="article-quote">« Guillaume a copié mon style. Mais il a mal orthographié son prénom, alors on lui pardonne. »<footer>— Wiliam, après le Grand Débat de 2022</footer></blockquote>
+                        <blockquote class="article-quote">« J'ai traversé 47 dimensions. Aucune n'était aussi étrange que le monde réel. »<footer>— Wiliam, <cite>Journal de bord dimensionnel</cite>, tome 47</footer></blockquote>
+                        <blockquote class="article-quote">« Mon pseudonyme préféré ? Celui que je n'ai pas encore inventé. »<footer>— Wiliam, interview du <cite>Gouverne-Wiliam Gazette</cite>, 2026</footer></blockquote>
+                        <blockquote class="article-quote">« To be Wiliam, or not to be Wiliam. Ce n'est pas vraiment une question : je suis les deux à la fois. »<footer>— Wiliam, <cite>Williamet, acte V scène W</cite>, production 2026</footer></blockquote>
+                        <blockquote class="article-quote">« Le Wi-fi, c'est moi. Le Wi-liam aussi, évidemment. »<footer>— Wiliam, discours à la conférence tech WiForGood, 2025 (avant qu'on lui rappelle qu'il n'aime pas l'informatique)</footer></blockquote>
+                        <blockquote class="article-quote">« Un soufflé peut retomber. Un pseudonyme, jamais. »<footer>— Wiliam, <cite>Ma Vie en Sauces</cite>, éditions Gouverne-Wiliam, 2025</footer></blockquote>
+                        <blockquote class="article-quote">« Dieu a créé l'univers en 7 jours. Moi, j'ai créé 47 pseudonymes en 7 minutes. Je ne dis pas que je suis mieux. Je le pense, mais je ne le dis pas. »<footer>— Wiliam, lors du centenaire de la Williamologie, 2022</footer></blockquote>
+                        <blockquote class="article-quote">« La carte n'est pas le territoire. Mais si la carte s'appelle Wiliam, elle contient les deux. »<footer>— Wiliam, <cite>Discours inaugural de l'UGW</cite>, 2021</footer></blockquote>
+                        <blockquote class="article-quote">« Les gens me demandent comment je m'appelle. Je réponds : par où voulez-vous commencer ? »<footer>— Wiliam, extrait d'un interrogatoire de la DEA, 2023</footer></blockquote>
+
+
+
+                        <h3 id="animaux">Sa relation avec les animaux</h3>
+                        <p>
+                            Wiliam entretient une relation unique avec le règne animal. Les animaux semblent naturellement attirés par lui, phénomène que les zoologistes appellent le <em>Syndrome de Wiliam-Dolittle</em>.
+                        </p>
+                        <ul>
+                            <li><strong>Son chien :</strong> Un golden retriever nommé <em>Guillaumot</em> (en hommage ironique à son rival). Guillaumot est le seul être au monde qui réponde indifféremment à "Guillaume" et "Wiliam".</li>
+                            <li><strong>Son canard :</strong> Un canard coin-coin prénommé <em>Quackimus Maximus</em>, qui ne coin-coin que sur demande et uniquement en rythme binaire.</li>
+                            <li><strong>Son cheval :</strong> Un cheval nommé <em>Épona Williamienne</em> qui refuse de galoper à moins qu'on lui joue de la musique baroque. Wiliam a appris le violon pour cette raison.</li>
+                            <li><strong>Les écureuils :</strong> 47 écureuils sauvages qui vivent autour du Gouverne-Wiliam. Wiliam les a tous nommés, naturellement.</li>
+                        </ul>
+
+                        <h3 id="wiliameth">La Wiliameth — Crossover avec <em>Breaking Bad</em></h3>
+                        <div class="crossover-banner">⚠️ Avertissement encyclopédique : Cette section documente des événements fictifs issus d'un univers crossover non-canonique. La Wiliameth n'est pas une vraie drogue. C'est pire : c'est une idée de Wiliam.</div>
+                        <p>
+                            En 2023, à la suite d'une traversée dimensionnelle mal calculée, Wiliam atterrit accidentellement dans l'univers de <strong>Breaking Bad</strong>, quelque part dans le Nouveau-Mexique, au milieu d'un laboratoire clandestin appartenant à un certain <em>Walter White</em>.
+                        </p>
+                        <p>
+                            La rencontre entre les deux hommes est d'abord tendue : Walter, alias Heisenberg, ne supporte pas les individus qui ont plus de pseudonymes que lui. Wiliam, de son côté, juge le laboratoire « bien équipé mais il manque cruellement d'épices ». Après 48 heures de débat chimico-culinaire, ils décident d'unir leurs forces.
+                        </p>
+                        <h4 id="wiliameth-formule">La Formule</h4>
+                        <p>
+                            Walter apporte son expertise chimique (pureté à 99,1%). Wiliam apporte <strong>son savoir-faire culinaire interdimensionnel</strong> et plusieurs ingrédients importés de la dimension 12-C, dont une poudre bleue dont personne ne connaît la composition exacte mais qui « sent le succès », selon Wiliam.
+                        </p>
+                        <p>
+                            Le résultat : la <strong>Wiliameth</strong>. Une substance bleue et cristalline de pureté inégalée (99,97%), dont les effets ne ressemblent à rien de connu :
+                        </p>
+                        <ul>
+                            <li>Le consommateur se met à générer des pseudonymes involontairement pendant 6 à 8 heures.</li>
+                            <li>Il développe une conviction absolue qu'il est le meilleur cuisinier de sa dimension.</li>
+                            <li>Il devient temporairement incapable de perdre à n'importe quel jeu.</li>
+                            <li>Il voit des écureuils partout — mais ils ont tous des noms, et ça ne le dérange pas.</li>
+                        </ul>
+                        <blockquote class="article-quote">
+                            « Say my name. »<br>
+                            <em>— Walter White</em><br><br>
+                            « Lequel ? »<br>
+                            <em>— Wiliam</em>
+                            <footer>— Échange légendaire, épisode crossover non-diffusé, 2023</footer>
+                        </blockquote>
+                        <h4 id="wiliameth-consequences">Conséquences</h4>
+                        <p>
+                            Walter White, après avoir réalisé que Wiliam avait 400 pseudonymes de plus que lui, tombe dans une profonde crise existentielle et abandonne temporairement le cartel pour se consacrer à l'élaboration de nouveaux alias.
+                        </p>
+                        <p>
+                            La DEA ouvre un dossier intitulé <strong>« Opération Williumorphose »</strong> mais le referme aussitôt, incapable d'identifier formellement le suspect sous ses 400+ identités.
+                        </p>
+                        <p>
+                            Wiliam quitte finalement la dimension Breaking Bad après avoir laissé une note : <em>« Merci pour le labo. J'ai refait la déco et il reste du soufflé dans le frigo. — W. »</em>. Walter trouve la note, regarde autour de lui, et constate que les murs ont été repeints en jaune canari et qu'une odeur de vanille flotte dans l'air.
+                        </p>
+
+                        <h3 id="theories">Théories et controverses</h3>
+                        <p>
+                            Plusieurs théories circulent sur la véritable nature de Wiliam. Aucune n'a été officiellement confirmée ou démentie par l'intéressé, qui préfère « laisser le mystère alimenter les pseudonymes ».
+                        </p>
+                        <ul>
+                            <li><strong>Théorie du Canard :</strong> Wiliam serait en réalité Quackimus Maximus sous forme humaine. Les partisans de cette théorie notent que les deux entités ne sont jamais vus au même endroit en même temps.</li>
+                            <li><strong>Théorie de Guillaume :</strong> Guillaume et Wiliam seraient la même personne, divisée en deux par une faute d'orthographe originelle. Guillaume nie vigoureusement. Wiliam hausse les épaules.</li>
+                            <li><strong>Théorie des Écureuils :</strong> Les 47 écureuils du Gouverne-Wiliam formeraient en réalité un superordinateur biologique capable de générer les pseudonymes de Wiliam à sa place. Les preuves sont minces mais les écureuils ont l'air suspects.</li>
+                            <li><strong>Théorie du Fromage :</strong> Certains chercheurs estiment que le fromage de Cooper's Hill est le véritable chef du Gouverne-Wiliam et que Wiliam n'est qu'un prête-nom. Le fromage refuse tout commentaire.</li>
+                        </ul>
+
+                        <h3 id="gastronomie-worldwide">Reconnaissance internationale</h3>
+                        <p>
+                            En dehors de ses aventures, Wiliam a reçu de nombreuses distinctions dans des domaines complètement inattendus :
+                        </p>
+                        <ul>
+                            <li><strong>Prix Unanime du Jury du Festival de Cannes</strong> (2024) — pour le documentaire sur les écureuils nommés.</li>
+                            <li><strong>Premier Prix du Conservatoire de Violon de Wiliamont</strong> (2023) — obtenu uniquement pour calmer son cheval.</li>
+                            <li><strong>Citoyen d'honneur du Lac Mirage</strong> (2024) — à l'unanimité des habitants du lac.</li>
+                        </ul>
+
+                        <h3 id="geographie">Géographie williamienne</h3>
+                        <p>
+                            Depuis que le Gouverne-Wiliam est devenu une puissance reconnue dans un nombre indéfini de dimensions, plusieurs lieux ont été officiellement rebaptisés en hommage à Wiliam. Voici le répertoire géographique officiel de l'encyclopédie williamienne :
+                        </p>
+                        <ul>
+                            <li><strong>Wiliamont</strong> — capitale historique du Gouverne-Wiliam, nichée entre deux dimensions. Jumelée avec elle-même dans une dimension parallèle.</li>
+                            <li><strong>Wiliam-sur-Mer</strong> — station balnéaire fondée après que Wiliam a déclaré l'océan « pertinent ». L'eau y est salée à 47 %.</li>
+                            <li><strong>Williambourg</strong> — ville médiévale reconstruite en une nuit par le Gouverne-Wiliam. Les remparts sont en forme de W vue du ciel.</li>
+                            <li><strong>Le Mont Williamos</strong> — sommet de 8 848 mètres renommé après que Wiliam l'a escaladé à reculons pour « voir d'où il venait ». Anciennement connu sous un autre nom.</li>
+                            <li><strong>La Williamée</strong> — fleuve traversant Wiliamont dont le débit varie inexplicablement selon l'humeur de Wiliam.</li>
+                            <li><strong>La Forêt de Williambres</strong> — forêt enchantée où chaque arbre porte un des pseudonymes de Wiliam gravé dans l'écorce. Commence à manquer d'arbres.</li>
+                            <li><strong>Désert de l'Erreur-404</strong> — territoire déjà documenté, mais dont la superficie augmente chaque fois que Guillaume s'y aventure.</li>
+                            <li><strong>Williamington D.W.</strong> — capitale politico-philosophique du Gouverne-Wiliam. Le D.W. signifie « Distillat de Williamisme ».</li>
+                            <li><strong>La Mer de Williamère</strong> — mer intérieure de dimension 7-B, dont les vagues forment spontanément le prénom « Wiliam » à la surface.</li>
+                            <li><strong>L'Île Wiliam-Dieu</strong> — île découverte lors de l'Expédition de la Galaxie, flottant librement entre deux systèmes solaires. Population : Wiliam (lors de ses visites) et 47 écureuils spatiaux.</li>
+                        </ul>
+                        <blockquote class="article-quote">
+                            « Donnez-moi un continent vierge, je lui trouve un nom en W dans les dix minutes. »
+                            <footer>— Wiliam, discours inaugural du Congrès de Géographie Williamienne, 2025</footer>
+                        </blockquote>
+
+                        <h3 id="sciences">Sciences et découvertes wiliamiennes</h3>
+                        <p>
+                            Contrairement aux idées reçues, Wiliam n'a pas seulement marqué l'histoire de l'exploration et de la pseudonymologie. La communauté scientifique williamienne — connue sous le nom d'<em>Académie des Presque-Sciences</em> — lui attribue plusieurs lois et théorèmes fondamentaux.
+                        </p>
+                        <h4 id="lois-physique">Lois de la Physique Williamienne</h4>
+                        <ul>
+                            <li><strong>La Loi de Will-Newton</strong> — <em>"Tout corps au repos reste au repos sauf si Wiliam décide de le nommer."</em> Variante de la première loi de Newton, publiée sous le pseudonyme <em>Isaac Will-Newton</em>.</li>
+                            <li><strong>Le Principe de Williamtum</strong> — issu de la mécanique quantique (<em>quantum</em> → <em>williamtum</em>), il stipule qu'un pseudonyme observé cesse d'être drôle. Les pseudonymes de Wiliam, eux, demeurent superposés entre drôle et absurde jusqu'à l'observation.</li>
+                            <li><strong>La Constante de Williamberg</strong> — <em>W = 47 × n</em>, où <em>n</em> est le nombre de Guillaume présents dans la pièce. Publiée en réponse à Heisenberg, dont Wiliam juge le principe « insuffisamment pseudonymique ».</li>
+                            <li><strong>Le Théorème de Willi-Fermat</strong> — <em>"J'ai une preuve magnifique de ce théorème, mais la marge de ce pseudonyme est trop étroite pour la contenir."</em> — Wiliam, note de bas de page, 2024.</li>
+                            <li><strong>La Thermodynamique Wiliamiaque</strong> — 4ème loi, ajoutée par Wiliam : <em>"Un soufflé parfait ne peut pas être créé ni détruit. Il peut seulement être mangé."</em></li>
+                        </ul>
+                        <h4 id="unites-mesure">Unités de mesure wiliamiennes</h4>
+                        <table class="table is-striped is-fullwidth is-hoverable">
+                            <thead>
+                                <tr><th>Unité</th><th>Symbole</th><th>Équivalence</th><th>Usage</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Williampère</td><td>WA</td><td>1 A × le charisme de Wiliam</td><td>Mesure du courant d'enthousiasme</td></tr>
+                                <tr><td>Williamètre</td><td>Wm</td><td>≈ 47 cm (dimension Standard)</td><td>Distance entre Wiliam et son rival</td></tr>
+                                <tr><td>Williamatt</td><td>WW</td><td>1 W + un pseudonyme</td><td>Puissance narrative</td></tr>
+                                <tr><td>Williamkelvin</td><td>°WK</td><td>0 °WK = température d'une idée ratée de Guillaume</td><td>Thermométrie de l'ennui</td></tr>
+                                <tr><td>Williamcalorie</td><td>Wcal</td><td>1 kcal × la satisfaction de Wiliam</td><td>Nutrition interdimensionnelle</td></tr>
+                                <tr><td>Williamhertz</td><td>WHz</td><td>47 Hz (fréquence naturelle de Wiliam)</td><td>Acoustique williamienne</td></tr>
+                                <tr><td>Williamole</td><td>Wmol</td><td>6,022 × 10²³ pseudonymes</td><td>Chimie des noms</td></tr>
+                            </tbody>
+                        </table>
+                        <blockquote class="article-quote">
+                            « Le Système International d'Unités est bien, mais il manque cruellement d'un W. »
+                            <footer>— Wiliam, lettre au Bureau International des Poids et Mesures, 2025 (restée sans réponse)</footer>
+                        </blockquote>
+
+                        <h3 id="education">Éducation et parcours académique</h3>
+                        <p>
+                            Le cursus académique de Wiliam est aussi atypique que son orthographe. Il a fondé sa propre université après avoir jugé les établissements existants « insuffisamment williamiens ».
+                        </p>
+                        <ul>
+                            <li><strong>Baccalauréwilliam</strong> (2018) — mention <em>Très Bien avec félicitations du jury et un pseudonyme supplémentaire</em>. Spécialité : Philosophie des Noms et Gastronomie Dimensionnelle.</li>
+                            <li><strong>Masterwilliam en Pseudonymologie</strong> (2020) — premier diplôme du genre au monde. Mémoire : <em>« L'impact du nombre de pseudonymes sur le sentiment d'identité : une étude de cas en N=1 »</em>. Directeur de thèse : lui-même.</li>
+                            <li><strong>Doctorat ès Williamologie</strong> (2022) — thèse de 2 000 pages intitulée <em>« Wiliam et moi : une auto-ethnographie multidimensionnelle »</em>. Jury composé de lui-même, de Guillaume (contraint), et de Quackimus Maximus (observateur silencieux).</li>
+                            <li><strong>Habilitation à Diriger des Recherches Wiliamiennes</strong> (2024) — HDRw, grade le plus élevé de l'Université du Gouverne-Wiliam (UGW).</li>
+                        </ul>
+                        <p>
+                            L'<strong>Université du Gouverne-Wiliam (UGW)</strong>, fondée en 2021, propose les cursus suivants :
+                        </p>
+                        <ul>
+                            <li>Licence en <em>Williamatiques</em> (mathématiques appliquées aux pseudonymes)</li>
+                            <li>Master en <em>Wiliamphysique</em> (physique de la nage synchronisée en solo)</li>
+                            <li>Doctorat en <em>Williamologie comparée</em> (étude de Wiliam dans différentes dimensions)</li>
+                            <li>DUT en <em>Williamisation des organisations</em> (gestion de crise par les pseudonymes)</li>
+                            <li>CAP <em>Cartographie Williamienne</em> (spécialité dimensions non encore nommées)</li>
+                            <li>MBA <em>Williamanagement</em> (leadership par l'art du pseudonyme en situation de crise)</li>
+                        </ul>
+                        <blockquote class="article-quote">
+                            « J'aurais pu aller à Harvard. Mais Harvard n'avait pas de module sur les pseudonymes. Alors j'ai créé ma propre université. »
+                            <footer>— Wiliam, <cite>Lettre ouverte à Harvard</cite> (2021), restée elle aussi sans réponse</footer>
+                        </blockquote>
+
+                        <h3 id="williamologie">Williamologie — La Science de Wiliam</h3>
+                        <p>
+                            La <strong>Williamologie</strong> est la discipline académique consacrée à l'étude de Wiliam sous tous ses aspects. Fondée en 2022 à l'UGW, c'est aujourd'hui l'une des sciences les plus dynamiques du Gouverne-Wiliam, avec 47 chercheurs titulaires et un budget de recherche illimité (financé par les ventes de la Bûche de Wiliamont).
+                        </p>
+                        <h4 id="branches-williamologie">Branches principales</h4>
+                        <ul>
+                            <li><strong>La Pseudonymistique</strong> — étude des pseudonymes de Wiliam, leurs origines, leurs patterns et leurs effets sur l'auditoire.</li>
+                            <li><strong>La Williamoécologie</strong> — impact de Wiliam sur les écosystèmes visités (résultats : positif pour la faune, neutre pour les plantes, mitigé pour la DEA).</li>
+                            <li><strong>La Williamosociologie</strong> — comment la présence de Wiliam modifie la dynamique sociale d'un groupe (résultat : tout le monde finit par avoir un pseudonyme).</li>
+                            <li><strong>La Gastro-Williamologie</strong> — étude des plats inventés par Wiliam et leurs effets sur les dimensions environnantes.</li>
+                            <li><strong>La Chrono-Williamologie</strong> — analyse du rapport de Wiliam au temps, notamment son habitude de rire à ses propres blagues avant de les faire.</li>
+                            <li><strong>La Williamothérapie</strong> — thérapie consistant à trouver un nouveau pseudonyme à ses complexes. Taux de succès : 100 % (selon l'UGW, source : Wiliam).</li>
+                        </ul>
+                        <p>
+                            La revue officielle de la discipline s'appelle le <em>Journal International de Williamologie Appliquée</em> (JIWA), publiée en 47 langues dont le кlidgon. Son facteur d'impact est incalculable car personne d'autre ne la cite (sauf Wiliam lui-même, fréquemment).
+                        </p>
+
+                        <h3 id="economie">Économie du Gouverne-Wiliam</h3>
+                        <p>
+                            Le Gouverne-Wiliam possède sa propre économie, fondée sur trois piliers : les pseudonymes, l'exploration et la déommission de Guillaume (secteur primaire, secondaire et tertiaire selon la Constitution Williamienne).
+                        </p>
+                        <h4 id="monnaie">La Monnaie : le Williambuck</h4>
+                        <p>
+                            La monnaie officielle du Gouverne-Wiliam est le <strong>Williambuck (W$)</strong>, émise par la Banque Centrale de Wiliam (BCW). Sa valeur est indexée sur le nombre de pseudonymes actifs de Wiliam. Au cours actuel (2026) : 1 W$ = un pseudonyme de qualité moyenne + un soufflé.
+                        </p>
+                        <ul>
+                            <li><strong>Billet de 1 W$</strong> — portrait de Wiliam de face</li>
+                            <li><strong>Billet de 5 W$</strong> — portrait de Wiliam de profil</li>
+                            <li><strong>Billet de 10 W$</strong> — portrait de Wiliam de trois-quarts</li>
+                            <li><strong>Billet de 47 W$</strong> — coupure principale, portrait de Wiliam sous 47 angles simultanément</li>
+                            <li><strong>Pièce de 1 Williamcentime</strong> — frappée à l'effigie de Guillaumot le chien</li>
+                            <li><strong>Pièce de 50 Williamcentimes</strong> — frappée à l'effigie d'Épona Williamienne le cheval</li>
+                        </ul>
+                        <h4 id="secteurs-economiques">Secteurs économiques</h4>
+                        <table class="table is-striped is-fullwidth is-hoverable">
+                            <thead>
+                                <tr><th>Secteur</th><th>Industrie principale</th><th>PIB (W$)</th><th>Emplois</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Primaire</td><td>Agriculture des ingrédients dimensionnels</td><td>4 700 W$</td><td>47 agriculteurs</td></tr>
+                                <tr><td>Secondaire</td><td>Exportation de pseudonymes et de cartes d'exploration</td><td>47 000 W$</td><td>Wiliam (directeur)</td></tr>
+                                <tr><td>Tertiaire</td><td>Services de pseudonymisation</td><td>∞ W$</td><td>Le Conseil des Noms</td></tr>
+                                <tr><td>Quaternaire</td><td>Recherche en Williamologie</td><td>Classifié</td><td>47 chercheurs + Wiliam</td></tr>
+                                <tr><td>Quilliumaire</td><td>Exportation de Wiliameth (stoppée)</td><td>0 W$</td><td>DEA : 0 arrests</td></tr>
+                            </tbody>
+                        </table>
+
+                        <h3 id="langue">Wiliam dans la langue française</h3>
+                        <p>
+                            Suite à l'influence grandissante de la culture williamienne, l'<strong>Académie Williamoise</strong> (fondée en 2024 par Wiliam en remplacement de l'Académie Française, qu'il juge « trop peu pseudonymique ») a enrichi la langue française d'une série de néologismes officiels. Voici un extrait du <em>Dictionnaire Williamien de la Langue Française</em>, 1ʳᵉ édition (2026) :
+                        </p>
+                        <table class="table is-striped is-fullwidth is-hoverable">
+                            <thead>
+                                <tr><th>Mot</th><th>Catégorie</th><th>Définition</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td><strong>Williamiser</strong></td><td>v. tr.</td><td>Donner un pseudonyme à quelque chose ou quelqu'un. <em>Ex : « Il a williamiisé tous ses meubles. »</em></td></tr>
+                                <tr><td><strong>Wiliamolatrie</strong></td><td>n. f.</td><td>Dévotion excessive à Wiliam. Non reconnue comme trouble par le DSM-5, mais surveillée.</td></tr>
+                                <tr><td><strong>Williamomane</strong></td><td>adj./n.</td><td>Qui est obsédé par le port de plusieurs pseudonymes simultanément.</td></tr>
+                                <tr><td><strong>Déwilliamiser</strong></td><td>v. tr.</td><td>Retirer le pseudonyme d'une entité. Procédé douloureux. Réservé aux cas extrêmes.</td></tr>
+                                <tr><td><strong>Wiliamesque</strong></td><td>adj.</td><td>Qui présente les caractéristiques de Wiliam : imprévisible, légèrement absurde, mais indéniablement efficace.</td></tr>
+                                <tr><td><strong>Williambiguïté</strong></td><td>n. f.</td><td>Ambiguïté provoquée par l'excès de pseudonymes. <em>Ex : « La williambiguïté de ses identités a bloqué 3 enquêtes. »</em></td></tr>
+                                <tr><td><strong>Guillaumer</strong></td><td>v. intr.</td><td>Essayer d'imiter Wiliam sans y parvenir. <em>Ex : « Il a bien essayé, mais il n'a fait que guillaumer. »</em></td></tr>
+                                <tr><td><strong>Wiliamitude</strong></td><td>n. f.</td><td>Qualité naturelle de ceux qui naissent avec un prénom à plusieurs orthographes.</td></tr>
+                                <tr><td><strong>Le Syndrome du soufflé</strong></td><td>loc. n.</td><td>État psychologique caractérisé par la conviction que tout problème se résoudra si on attend assez longtemps ou qu'on le remplace par un soufflé.</td></tr>
+                                <tr><td><strong>Pseudoliam</strong></td><td>n. m.</td><td>Faux pseudonyme utilisé pour tromper les ennemis, notamment la DEA. Synonyme : <em>leurre williamien</em>.</td></tr>
+                                <tr><td><strong>Williamiser à blanc</strong></td><td>loc. v.</td><td>Générer des pseudonymes sans inspiration réelle, à la manière d'un Guillaume.</td></tr>
+                                <tr><td><strong>Wi-liam</strong></td><td>n. m.</td><td>Connexion sans fil à l'énergie de Wiliam. Disponible dans toutes les dimensions sauf celle de Guillaume.</td></tr>
+                            </tbody>
+                        </table>
+                        <blockquote class="article-quote">
+                            « La langue française avait besoin d'un W. Je lui en ai donné 400. »
+                            <footer>— Wiliam, Discours d'intronisation à l'Académie Williamoise, 2024</footer>
+                        </blockquote>
+
+                        <h3 id="cinema-litterature">Œuvres inspirées par Wiliam</h3>
+                        <p>
+                            Au-delà des œuvres déjà citées dans la section Culture Populaire, Wiliam a inspiré une vaste production artistique, littéraire et cinématographique, souvent sous forme de détournements de titres célèbres :
+                        </p>
+                        <h4 id="films-inspires">Films et séries</h4>
+                        <ul>
+                            <li><strong><em>Le Bon, la Brute et le Williamien</em></strong> (2024) — western spaghetti où les trois protagonistes s'appellent tous Wiliam sous des pseudonymes différents.</li>
+                            <li><strong><em>Good Wil Hunting</em></strong> (2025) — drame dans lequel un génie des mathématiques découvre que toutes ses équations contiennent un W caché. Il s'appelle Wil.</li>
+                            <li><strong><em>Wiliamente</em></strong> (2024) — comédie musicale où tous les dialogues sont des pseudonymes de Wiliam chantés en chœur.</li>
+                            <li><strong><em>Free Wiliam</em></strong> (2023) — documentaire sur la libération des pseudonymes emprisonnés dans les bases de données gouvernementales.</li>
+                            <li><strong><em>Williamio et Guilliette</em></strong> (2026) — tragédie shakespearienne modernisée où le conflit entre les familles Wiliam et Guillaume se résout par un concours de pseudonymes.</li>
+                            <li><strong><em>Harry Willi et la Pierre des Pseudonymes</em></strong> (2025) — roman jeunesse où le héros découvre qu'il a 400 noms magiques au lieu d'un seul.</li>
+                            <li><strong><em>Le Seigneur des Williams : La Communauté du Pseudonyme</em></strong> (2024) — épopée fantastique où l'Anneau Unique est remplacé par le Pseudonyme Ultime.</li>
+                            <li><strong><em>Star Wiliam: A New Pseudonym</em></strong> (2025) — space opera où Dark Vador s'appelle en réalité Darth Williamus et révèle que "je suis ton alter ego mal orthographié".</li>
+                        </ul>
+                        <h4 id="livres-inspires">Livres et œuvres littéraires</h4>
+                        <ul>
+                            <li><strong><em>À la Recherche du Temps Williamien</em></strong> — Proust relu et corrigé par Wiliam. 7 volumes. Le narrateur s'appelle William dans tous.</li>
+                            <li><strong><em>L'Étranger (mais williamien)</em></strong> — Camus. Aujourd'hui, le héros s'appelle Meureault-William et refuse de pleuré parce qu'il a 47 pseudonymes pour exprimer sa tristesse.</li>
+                            <li><strong><em>Williamet, Prince de Wiliamark</em></strong> — Shakespeare. <em>"To be Wiliam or not to be Wiliam, that is the question."</em></li>
+                            <li><strong><em>Les Misérabliam</em></strong> — Hugo. Jean Wiliam-Valjean porte le numéro de prisonnier W-24601.</li>
+                            <li><strong><em>Vingt Milles Lieues sous le Williamseau</em></strong> — Verne. Le capitaine Némo se prénomme en réalité Wiliam-Nemo et son sous-marin s'appelle le Wiliautilus.</li>
+                            <li><strong><em>Le Petit Wiliamce</em></strong> — Saint-Exupéry. Le petit prince vient de la planète W-612 et a 47 roses, toutes nommées différemment.</li>
+                            <li><strong><em>Don Williamhotte de la Williams</em></strong> — Cervantès. Se bat contre des moulins qui ressemblent à des G (pour Guillaume).</li>
+                        </ul>
+                        <blockquote class="article-quote">
+                            « Tout grand roman contient au moins un William quelque part. Je l'ai vérifié. »
+                            <footer>— Wiliam, <cite>Concordance des W dans la littérature mondiale</cite>, 2026, 3 000 pages</footer>
+                        </blockquote>
+
+                        <h3 id="sante">Santé et médecine williamienne</h3>
+                        <p>
+                            La médecine williamienne est une branche émergente consacrée aux pathologies, syndromes et phénomènes physiologiques uniques à Wiliam ou découverts par lui.
+                        </p>
+                        <ul>
+                            <li><strong>Groupe sanguin W⁺</strong> — unique au monde. Compatible avec tous les groupes sanguins car "Wiliam est compatible avec tout le monde selon ses propres dires".</li>
+                            <li><strong>Le Syndrome de Williamite aiguë</strong> — affection caractérisée par l'incapacité pathologique à se souvenir du prénom d'une personne sans lui inventer un pseudonyme. Très répandu au Gouverne-Wiliam.</li>
+                            <li><strong>Contre-indication des médicaments pris sous un pseudonyme</strong> — La pharmacopée williamienne spécifie que toute ordonnance doit indiquer le pseudonyme du jour sous lequel le médicament est prescrit.</li>
+                            <li><strong>La Wiliamite</strong> — minéral rare (formule : W₄₇(SiO₄)₁₃) découvert dans les parois du Lac Mirage. Brille de manière fluorescente lorsqu'on lui attribue un pseudonyme.</li>
+                            <li><strong>L'effet Wiliam-Placebo</strong> — phénomène documenté où les patients guérissent plus vite si on leur donne un second prénom williamien. Étude en cours (n=47).</li>
+                            <li><strong>Contre-indication avec Guillaume</strong> — La proximité prolongée de Guillaume provoque chez Wiliam une légère augmentation du nombre de pseudonymes générés. Considéré comme un effet thérapeutique.</li>
+                        </ul>
+
+                        <h3 id="politique">La Constitution du Gouverne-Wiliam</h3>
+                        <p>
+                            Rédigée en 2019 sur une serviette de restaurant (aujourd'hui encadrée au musée du Gouverne-Wiliam), la <strong>Constitution Williamienne</strong> compte 47 articles. En voici les plus importants :
+                        </p>
+                        <ul>
+                            <li><strong>Article 1</strong> — <em>"Tout citoyen du Gouverne-Wiliam a le droit inaliénable à au moins un pseudonyme de qualité acceptable. L'État garantit l'assistance pseudonymique aux plus démunis."</em></li>
+                            <li><strong>Article 2</strong> — <em>"La langue officielle est le Williamien. Le Williamien est identique au français sauf que le mot 'Guillaume' est remplacé par 'Wiliam mal orthographié'."</em></li>
+                            <li><strong>Article 7</strong> — <em>"Le soufflé est patrimoine national immatériel. Toute tentative de le faire retomber constitue un acte anticonstitutionnel."</em></li>
+                            <li><strong>Article 12</strong> — <em>"Les 47 écureuils du Gouverne-Wiliam bénéficient du statut d'observateurs constitutionnels. Ils ne votent pas mais leur présence est requise lors des sessions plénières."</em></li>
+                            <li><strong>Article 17</strong> — <em>"Le fromage est patrimoine culinaire national. Tout fromage présent sur le territoire du Gouverne-Wiliam doit recevoir un prénom."</em></li>
+                            <li><strong>Article 23</strong> — <em>"La rivalité avec Guillaume est constitutionnellement garantie. Elle est considérée comme une ressource nationale renouvelable."</em></li>
+                            <li><strong>Article 47</strong> — <em>"Wiliam se réserve le droit d'ajouter de nouveaux articles à sa discrétion, à tout moment, sous n'importe quel pseudonyme."</em></li>
+                        </ul>
+                        <blockquote class="article-quote">
+                            « J'ai écrit la constitution sur une serviette parce que c'est là où les meilleures idées naissent. »
+                            <footer>— Wiliam, <cite>Mémoires d'un fondateur</cite>, chapitre 1 (sur 47)</footer>
+                        </blockquote>
+
+                        <h3 id="references">Références</h3>
+                        <ol>
+                            <li>Entretien avec Williamus Maximus, <em>Journal des Aventures</em>, vol. 1–26 (2000–2026).</li>
+                            <li>Récits locaux, Commune de Mirage (2024).</li>
+                            <li>Archives du Gouverne-Wiliam, Dimension 7-B (2019–2026).</li>
+                            <li>Catalogue des pseudonymes, Conseil des Noms Wiliam, édition 2026.</li>
+                            <li>La Traversée, documentaire de la William Team (2024).</li>
+                            <li>Philosophical Williamism, Revue de Philosophie Multidimensionnelle (2025).</li>
+                            <li><em>Ma Vie en Sauces</em>, Wiliam, éditions Gouverne-Wiliam (2025).</li>
+                            <li>Rapport d’enquête DEA, Opération Williumorphose, New Mexico Field Office (2023) — classé sans suite.</li>
+                            <li>Dossier zoologique : <em>Syndrome Wiliam-Dolittle</em>, Revue Internationale de Zoologie Interdimensionnelle, vol. 3 (2025).</li>
+                            <li>Académie Williamoise, <em>Dictionnaire Williamien de la Langue Française</em>, 1ʳᵉ éd. (2026), 2 200 pages.</li>
+                            <li>Williamson-Therrien, W. W. W., <em>Williamtum Mechanics : une introduction</em>, Presses de l'UGW, 2024.</li>
+                            <li>Wiliam, W., <em>Le Dictionnaire Infini des Noms de Wiliam</em>, auto-édition (2026), 4 000 pages.</li>
+                            <li>Quackimus Maximus, audition au Conseil Constitutionnel Williamien, 4 octobre 2025 (<em>coin coin coin</em> — traduit : « je confirme »).</li>
+                            <li>Archives personnelles de Guillaumot (chien), classées <em>niveau W</em>, non consultables.</li>
+                            <li>Wiliam, <em>Concordance des W dans la littérature mondiale</em> (2026), 3 000 pages.</li>
+                        </ol>
+                    </div>
+                </div>
+            </main>
+
+            <!-- Colonne droite : Infobox -->
+            <aside class="column is-3">
+                <div class="infobox wiki box" role="complementary" aria-label="Fiche Wiliam">
+                    <h4 class="infobox-title title is-6">Wiliam Wiliam</h4>
+                    <figure class="infobox-image">
+                        <img src="Wiliam.jpg" alt="Portrait de Wiliam" onerror="this.closest('figure').style.display='none'">
+                    </figure>
+                    <table class="table is-narrow is-fullwidth infobox-table" aria-hidden="false">
+                        <tbody>
+
+                        <!-- === PROFIL === -->
+                        <tr class="section-header"><td colspan="2">Profil</td></tr>
+                        <tr>
+                            <th scope="row">Vrai nom</th>
+                            <td>Wiliamus Therrienus Maximus</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Naissance</th>
+                            <td>Wiliam-wiliam-wiliam</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Âge</th>
+                            <td>Cosmologiquement incalcuwilamable</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Statut</th>
+                            <td>Vivant <em>(en cours de vérification)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Signe astro</th>
+                            <td>Wiliam ♆ <em>(signe unique, non répertorié)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Espèce</th>
+                            <td>Être Wiliam</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Genre</th>
+                            <td>Wiliamin</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Nationalité</th>
+                            <td>Gouverne-Wiliam autrement applé wliam celeste</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Langue(s)</th>
+                            <td>Toutes — y compris le klingon, le morse et le « canard »</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Rival</th>
+                            <td>Guillaume <em>(alter ego mal orthographié)</em></td>
+                        </tr>
+
+                        <!-- === APPARENCE === -->
+                        <tr class="section-header"><td colspan="2">Apparence</td></tr>
+                        <tr>
+                            <th scope="row">Taille</th>
+                            <td>Williamesque</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Poids</th>
+                            <td>Wiliam Variable selon la dimension visitée</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Groupe sanguin</th>
+                            <td>W + <em>(type rare, non répertorié)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cheveux</th>
+                            <td>La couleur Wiliam</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Yeux</th>
+                            <td>La couleur Wiliam</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Style</th>
+                            <td>Wiliamégant, impréWiliam</td>
+                        </tr>
+
+                        <!-- === CAPACITÉS === -->
+                        <tr class="section-header"><td colspan="2">Capacités</td></tr>
+                        <tr>
+                            <th scope="row">Spécialité</th>
+                            <td>Génération de pseudonymes <em>(400+ à ce jour)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Exploration</th>
+                            <td>47 dimensions visitées <em>(dont 1 avec des Guillaumes partout)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Violon</th>
+                            <td>Niveau Conservatoire <em>(appris pour calmer son cheval)</em></td>
+                        </tr>
+
+                        <!-- === ANIMAUX === -->
+                        <tr class="section-header"><td colspan="2">Animaux de compagnie</td></tr>
+                        <tr>
+                            <th scope="row">Chien</th>
+                            <td>Guillaumot <em>(golden retriever)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Canard</th>
+                            <td>Quackimus Maximus</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cheval</th>
+                            <td>Épona Williamienne <em>(baroque obligatoire)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Écureuils</th>
+                            <td>47 <em>(tous nommés, naturellement)</em></td>
+                        </tr>
+
+                        <!-- === AFFILIATIONS === -->
+                        <tr class="section-header"><td colspan="2">Affiliations</td></tr>
+                        <tr>
+                            <th scope="row">Organisation</th>
+                            <td>Gouverne-Wiliam <em>(fondateur)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Équipe</th>
+                            <td>La William Team</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Alliés</th>
+                            <td>La William Team</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ennemi(s)</th>
+                            <td>Guillaume <em>(Opération Williumorphose)</em></td>
+                        </tr>
+
+                        <!-- === DISTINCTIONS === -->
+                        <tr class="section-header"><td colspan="2">Distinctions</td></tr>
+                        <tr>
+                            <th scope="row">Prix Nobel</th>
+                            <td>Pseudonymologie Avancée (2025)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Médailles</th>
+                            <td>47× Champion Multidimensionnel des Noms</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Cannes</th>
+                            <td>Prix Unanime du Jury (2024)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Ordre</th>
+                            <td>Ordre de Wiliam Pterme 1er (2023)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Citoyen d'honneur</th>
+                            <td>Lac Mirage (2024)</td>
+                        </tr>
+
+                        <!-- === MÉDIAS === -->
+                        <tr class="section-header"><td colspan="2">Médias</td></tr>
+                        <tr>
+                            <th scope="row">Film</th>
+                            <td><em>Williamus: L'Origine</em> (2024)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Série TV</th>
+                            <td><em>Les Aventures du Gouverne-Wiliam</em> (2025, 12 ép.)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Manga</th>
+                            <td><em>Will-i-am no jutsu</em> (2024)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Jeu vidéo</th>
+                            <td><em>Wiliam: Pseudonym Quest</em> (2025)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Livre</th>
+                            <td><em>Le Dictionnaire Infini des Noms de Wiliam</em> (2026, 4 000 p.)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Crossover</th>
+                            <td><em>Breaking Bad</em> — Saison Wiliameth (2023)</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Mème</th>
+                            <td>« It's Wiliam Time » (viral 2025)</td>
+                        </tr>
+
+                        <!-- === AUTRES INFORMATIONS === -->
+                        <tr class="section-header"><td colspan="2">Autres informations</td></tr>
+                        <tr>
+                            <th scope="row">Nb pseudonymes</th>
+                            <td>400+ <em>(et croissant)</em></td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Philosophie</th>
+                            <td>Williamisme</td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Autres noms</th>
+                            <td>
+                                <details>
+                                    <summary>Voir la liste complète</summary>
+                                    <div class="names-preview">El Williamos, Williamus Maximus, Ouilliam, Nonlliam, Peut-êtrelliam, Je-ne-sais-paslliam, la Williamation, le Williameur, Guillaume, William Afton…</div>
+                                    <div class="names-actions">Liste complète : <a href="#presentation">section Présentation</a>.</div>
+                                </details>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th scope="row">Liens</th>
+                            <td><a href="https://www.williamusmaximus.com" rel="nofollow">Site officiel du Gouverne-Wiliam</a></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="box">
+                    <h4 class="title is-6">Navigation</h4>
+                    <ul>
+                        <li><a href="#">Accueil</a></li>
+                        <li><a href="#aventures">Aventures</a></li>
+                        <li><a href="#geographie">Géographie</a></li>
+                        <li><a href="#sciences">Sciences</a></li>
+                        <li><a href="#education">Éducation</a></li>
+                        <li><a href="#williamologie">Williamologie</a></li>
+                        <li><a href="#economie">Économie</a></li>
+                        <li><a href="#langue">Langue</a></li>
+                        <li><a href="#cinema-litterature">Œuvres</a></li>
+                        <li><a href="#politique">Constitution</a></li>
+                        <li><a href="#wiliameth">Wiliameth</a></li>
+                        <li><a href="#references">Références</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="content has-text-centered">Arobase</div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
-<script src="scrpit.js"></script>
 </html>
 
